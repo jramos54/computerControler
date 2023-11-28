@@ -2,6 +2,12 @@ import pygetwindow as gw
 import pyautogui
 import time
 
+def work_time(seconds):
+    hours=seconds//3600
+    minutes=(seconds%3600)//60
+    second=seconds%60
+    return f"{int(hours):02}:{int(minutes):02}:{second:.0f}"
+    
 
 def windows_navigate():
     
@@ -31,16 +37,18 @@ def postman_work():
     pyautogui.press('tab')
     time.sleep(1)
     pyautogui.keyUp('ctrl')
-    time.sleep(3)
-    mouse_movement()
-    time.sleep(3)
+    time.sleep(5)
+    for i in range(7):
+        mouse_movement()
+    
     pyautogui.keyDown('ctrl')
     time.sleep(1)
     pyautogui.press('enter')
     time.sleep(1)
     pyautogui.keyUp('ctrl')
-    time.sleep(10)
-    mouse_movement()
+    time.sleep(15)
+    for i in range(7):
+        mouse_movement()
  
     
 def mouse_movement():
@@ -90,15 +98,57 @@ def write_vscode():
         pyautogui.press('enter')
         
 
+def chrome_work():
+    pyautogui.keyDown('ctrl')
+    time.sleep(1)
+    pyautogui.press('tab')
+    time.sleep(1)
+    pyautogui.keyUp('ctrl')
+    time.sleep(3)
+    for i in range(6):
+        mouse_movement()
+
+
+def outlook_work():
+    time.sleep(3)
+    for i in range(6):
+        mouse_movement()
+        
+        
+def teams_work():
+    time.sleep(3)
+    for i in range(6):
+        mouse_movement()
+
+
+def power_shell():
+    window_select('PowerShell')
+    pyautogui.keyDown('alt')
+    time.sleep(1)
+    pyautogui.press('F4')
+    time.sleep(1)
+    pyautogui.keyUp('alt')
+
 
 if __name__ == "__main__":
     pyautogui.PAUSE = 0.5
     pyautogui.FAILSAFE = False
     
-    for i in range(8):
-        windows_navigate()
-        # window_select('kuspit')
-        # postman_work()
-        windows_navigate()
-        window_select('Visual Studio Code')
-        write_vscode()
+    start_time=time.time()
+    
+    for i in range(1):
+        
+        window_select('Google Chrome')
+        chrome_work()
+        window_select('KUSPIT')
+        postman_work()
+        window_select('Outlook')
+        outlook_work()
+        window_select('Teams')
+        teams_work()
+
+    end_time=time.time()
+    
+    print(work_time(end_time-start_time))
+    
+    power_shell()

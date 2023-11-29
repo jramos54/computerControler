@@ -121,6 +121,12 @@ def teams_work():
         mouse_movement()
 
 
+def excel_work():
+    time.sleep(3)
+    for i in range(9):
+        mouse_movement()
+
+
 def power_shell():
     window_select('PowerShell')
     pyautogui.keyDown('alt')
@@ -130,22 +136,40 @@ def power_shell():
     pyautogui.keyUp('alt')
 
 
+def inspector_work():
+    time.sleep(3)
+    for i in range(3):
+        mouse_movement()
+
+
+def source_tree():
+    time.sleep(3)
+    for i in range(2):
+        mouse_movement()
+
 if __name__ == "__main__":
     pyautogui.PAUSE = 0.5
     pyautogui.FAILSAFE = False
     
     start_time=time.time()
     
-    for i in range(1):
+    for i in range(50):
         
+        window_select('Excel')
+        excel_work()
         window_select('Google Chrome')
         chrome_work()
-        window_select('KUSPIT')
+        window_select('DevTools')
+        inspector_work()
+        window_select('EZASSI')
         postman_work()
         window_select('Outlook')
         outlook_work()
         window_select('Teams')
         teams_work()
+        window_select('Sourcetree')
+        source_tree()
+        
 
     end_time=time.time()
     

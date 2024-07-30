@@ -118,7 +118,7 @@ if __name__ == "__main__":
     pyautogui.FAILSAFE = False
     
     start_time = time.time()
-    for i in range(1):
+    for i in range(2):
         print(f"Iteracion {i}")
         chrome_work()
         time.sleep(60)
@@ -134,7 +134,7 @@ if __name__ == "__main__":
         time.sleep(60)
         chrome_work()
         time.sleep(60)
-        # # # visual_work()
+        # visual_work()
         postman_work()
         time.sleep(60)
         terminal_work()
